@@ -1,0 +1,93 @@
+#mini project
+def process_purchase():
+    filename = input("Enter the file name: ")
+    try:
+        with open(filename, 'r') as file:
+            lines = file.readlines()
+        
+        items_count = 0
+        free_items = 0
+        total_amount = 0
+        discount = 0
+        
+        for line in lines:
+            parts = line.split()
+            if not parts:
+                continue
+            
+            if parts[0].lower() == 'discount':
+                discount = int(parts[1])
+            else:
+                items_count += 1
+                price_str = parts[1]
+                if price_str.lower() == 'free':
+                    free_items += 1
+                else:
+                    total_amount += int(price_str)
+        
+        print(f"No of items purchased: {items_count}")
+        print(f"No of free items: {free_items}")
+        print(f"Amount to pay: {total_amount}")
+        print(f"Discount given: {discount}")
+        print(f"Final amount paid: {total_amount - discount}")
+
+    except FileNotFoundError:
+        print("Error: The file was not found.")
+    except ValueError:
+        print("Error: Invalid data format in the file.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    process_purchase()
+
+
+#ques 1
+try:
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    result = num1 / num2
+    print("Result:", result)
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero.")
+except ValueError:
+    print("Error: Please enter valid integers.")
+
+#ques 2
+def is_prime(n):
+    if n <= 1: return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0: return False
+    return True
+
+try:
+    number = int(input("Enter a number: "))
+    if is_prime(number):
+        print(f"{number} is a prime number.")
+    else:
+        print(f"{number} is not a prime number.")
+except ValueError:
+    print("Error: Input must be an integer.")
+
+#ques 3
+try:
+    filename = input("Enter the file name: ")
+    with open(filename, 'r') as file:
+        print(file.read().title())
+except FileNotFoundError:
+    print("Error: The file does not exist.")
+
+#ques 4
+my_list = [10, -5, 20, -30, 40, -50, 60, -70, 80, -90]
+
+try:
+    index = int(input("Enter an index (0-9): "))
+    value = my_list[index]
+    if value >= 0:
+        print(f"The number {value} at index {index} is positive.")
+    else:
+        print(f"The number {value} at index {index} is negative.")
+except IndexError:
+    print("Error: Index out of range.")
+except ValueError:
+    print("Error: Please enter a valid integer index.")
