@@ -1,0 +1,92 @@
+#mini project 1
+def sort_colors(color_string):
+    colors = color_string.split('-')
+    colors.sort()
+    return '-'.join(colors)
+
+#mini project 2
+def is_palindrome(name):
+    clean_name = name.lower()
+    return clean_name == clean_name[::-1]
+
+def count_the_vowels(name):
+    vowels = "aeiou"
+    return sum(1 for char in name.lower() if char in vowels)
+
+def frequency_of_letters(name):
+    name = name.lower()
+    freq = {}
+    for char in name:
+        if char.isalpha():
+            freq[char] = freq.get(char, 0) + 1
+    return freq
+
+#ques 1
+def sum_of_list(numbers):
+    total = 0
+    for number in numbers:
+        total += number
+    return total
+
+sample_list = [8, 2, 3, 0, 7]
+print("Sum of all numbers:", sum_of_list(sample_list))
+
+#ques 2
+def reverse_string(input_string):
+    return input_string[::-1]
+
+sample_string = "1234abcd"
+print("Reversed string:", reverse_string(sample_string))
+
+#ques 3
+def calculate_factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        factorial = 1
+        for i in range(2, n + 1):
+            factorial *= i
+        return factorial
+
+number = 5
+print(f"Factorial of {number} is:", calculate_factorial(number))
+
+#ques 4
+def count_case(input_string):
+    upper_count = 0
+    lower_count = 0
+    for char in input_string:
+        if char.isupper():
+            upper_count += 1
+        elif char.islower():
+            lower_count += 1
+    print("Uppercase count:", upper_count)
+    print("Lowercase count:", lower_count)
+
+count_case("Hello World")
+
+#ques 5
+def print_even_numbers(numbers):
+    even_list = []
+    for number in numbers:
+        if number % 2 == 0:
+            even_list.append(number)
+    return even_list
+
+sample_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print("Even numbers:", print_even_numbers(sample_list))
+
+#ques 6
+def is_prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
+test_number = 7
+if is_prime(test_number):
+    print(f"{test_number} is a prime number.")
+else:
+    print(f"{test_number} is not a prime number.")
