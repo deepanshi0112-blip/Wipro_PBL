@@ -1,0 +1,247 @@
+#mini project
+people_facts = {
+    "Jeff": "Is afraid of Dogs.",
+    "David": "Plays the piano.",
+    "Jason": "Can fly an airplane."
+}
+
+def display_facts(data):
+    for name, fact in data.items():
+        print(f"{name}: {fact}")
+
+print("--- Initial List ---")
+display_facts(people_facts)
+
+people_facts["Jeff"] = "Is afraid of heights."
+
+people_facts["Jill"] = "Can hula dance."
+
+print("\n--- Updated List ---")
+display_facts(people_facts)
+
+#mini project 2
+def find_runner_up(scores):
+    unique_scores = set(scores)
+    
+    sorted_scores = sorted(list(unique_scores), reverse=True)
+    
+    return sorted_scores[1]
+
+scores = [2, 3, 6, 6, 5]
+runner_up = find_runner_up(scores)
+print(f"The runner-up score is: {runner_up}")
+
+
+# mini project 3
+student_records = {
+    "Krishna": [67, 68, 69],
+    "Arjun": [70, 98, 63],
+    "Malika": [52, 56, 60]
+}
+
+# Get student name from user
+name = input("Enter a name: ")
+
+if name in student_records:
+    marks = student_records[name]
+    average = sum(marks) / len(marks)
+    print(f"Average percentage mark: {average:.0f}")
+else:
+    print("Student not found.")
+
+
+# mini project 4
+def count_alex(input_string):
+    return input_string.count("Alex")
+
+input_str = "Hi Alex WelcomeAlex Bye Alex."
+result = count_alex(input_str)
+
+print(f"Sample output: {result}")
+
+
+#list
+# 1. Create a list of 5 integers and display the list items. Access individual elements through index.
+numbers_list = [10, 20, 30, 40, 50]
+print("Full list:", numbers_list)
+print("Element at index 0:", numbers_list[0])
+print("Element at index 4:", numbers_list[4])
+
+# 2. Append a new item to the end of the list.
+numbers_list = [10, 20, 30]
+numbers_list.append(40)
+print("List after appending:", numbers_list)
+
+# 3. Reverse the order of the items in the list.
+numbers_list = [1, 2, 3, 4, 5]
+numbers_list.reverse()
+print("Reversed list:", numbers_list)
+
+# 4. Print the number of occurrences of a specified element in a list.
+numbers_list = [1, 2, 2, 3, 2, 4]
+element_to_count = 2
+count = numbers_list.count(element_to_count)
+print(f"Number of occurrences of {element_to_count}: {count}")
+
+# 5. Append the items of list1 to list2 in the front.
+list1 = [1, 2]
+list2 = [3, 4]
+combined_list = list1 + list2
+print("Combined list:", combined_list)
+
+# 6. Insert a new item before the second element in an existing list.
+my_list = [10, 30, 40]
+# The second element is at index 1.
+my_list.insert(1, 20)
+print("List after insertion:", my_list)
+
+# 7. Remove the item from a specified index in a list.
+my_list = ['a', 'b', 'c', 'd']
+index_to_remove = 2
+my_list.pop(index_to_remove)
+print("List after removing index 2:", my_list)
+
+# 8. Remove the first occurrence of a specified element from a list.
+my_list = [10, 20, 30, 20, 40]
+my_list.remove(20)
+print("List after removing first occurrence of 20:", my_list)
+
+
+#dictionary
+# 1. Add a key and value to a dictionary.
+sample_dict = {0: 10, 1: 20}
+sample_dict[2] = 30
+print("Dictionary after adding key:", sample_dict)
+
+# 2. Concatenate dictionaries.
+dic1 = {1: 10, 2: 20}
+dic2 = {3: 30, 4: 40}
+dic3 = {5: 50, 6: 60}
+combined_dict = {}
+for dictionary in (dic1, dic2, dic3):
+    combined_dict.update(dictionary)
+print("Concatenated dictionary:", combined_dict)
+
+# 3. Check if a key exists.
+my_dict = {'a': 1, 'b': 2}
+key_to_check = 'a'
+if key_to_check in my_dict:
+    print(f"Key '{key_to_check}' exists.")
+else:
+    print(f"Key '{key_to_check}' does not exist.")
+
+# 4. Iterate over a dictionary.
+my_dict = {'x': 100, 'y': 200}
+for key in my_dict:
+    print("Key:", key)
+for value in my_dict.values():
+    print("Value:", value)
+for key, value in my_dict.items():
+    print(f"Key: {key}, Value: {value}")
+
+# 5. Dictionary of squares (1-15).
+squares_dict = {}
+for i in range(1, 16):
+    squares_dict[i] = i * i
+print("Dictionary of squares:", squares_dict)
+
+# 6. Sum all values in a dictionary.
+my_dict = {'a': 10, 'b': 20, 'c': 30}
+total_sum = sum(my_dict.values())
+print("Sum of all values:", total_sum)
+
+#tuple
+# 1. Print the 4th element from first and 4th element from last in a tuple.
+my_tuple = (10, 20, 30, 40, 50, 60, 70, 80)
+print("4th element from start:", my_tuple[3])
+print("4th element from end:", my_tuple[-4])
+
+# 2. Check whether an element exists in a tuple or not.
+my_tuple = (1, 2, 3)
+element_to_check = 2
+if element_to_check in my_tuple:
+    print(f"Element {element_to_check} exists in the tuple.")
+
+# 3. Convert a list into a tuple.
+my_list = [1, 2, 3]
+my_tuple = tuple(my_list)
+print("Converted tuple:", my_tuple)
+
+# 4. Find the index of an item in a tuple.
+my_tuple = ('a', 'b', 'c')
+index = my_tuple.index('b')
+print("Index of 'b':", index)
+
+# 5. Replace last value of tuples in a list to 100.
+data = [(10, 20, 40), (40, 50, 60), (70, 80, 90)]
+result_list = []
+for t in data:
+    # Creating a new tuple by taking elements up to the last one and adding 100
+    new_tuple = t[:-1] + (100,)
+    result_list.append(new_tuple)
+print("List after replacing last values:", result_list)
+
+
+#set
+# 1. Remove a given item from the set.
+my_set = {1, 2, 3, 4}
+my_set.discard(2)
+print("Set after removing 2:", my_set)
+
+# 2. Create an intersection of sets.
+set1 = {1, 2, 3}
+set2 = {2, 3, 4}
+intersection_set = set1.intersection(set2)
+print("Intersection:", intersection_set)
+
+# 3. Create a union of sets.
+union_set = set1.union(set2)
+print("Union:", union_set)
+
+# 4. Find the maximum and minimum value in a set.
+my_set = {10, 5, 8, 20}
+print("Maximum value:", max(my_set))
+print("Minimum value:", min(my_set))
+
+
+#string
+# 1. Count the number of upper and lower case letters in a String.
+input_string = "Wipro Technologies"
+upper_count = 0
+lower_count = 0
+for char in input_string:
+    if char.isupper():
+        upper_count += 1
+    elif char.islower():
+        lower_count += 1
+print(f"Uppercase: {upper_count}, Lowercase: {lower_count}")
+
+# 2. Check whether a given String is Palindrome or not.
+input_string = "radar"
+if input_string == input_string[::-1]:
+    print("The string is a palindrome.")
+else:
+    print("The string is not a palindrome.")
+
+# 3. Return a new string made of n copies of the first 2 chars.
+input_string = "Wipro"
+n = len(input_string)
+result_string = input_string[:2] * n
+print("Resulting string:", result_string)
+
+# 4. If the first or last character is 'x', return string without them.
+def remove_x(input_string):
+    if input_string.startswith('x'):
+        input_string = input_string[1:]
+    if input_string.endswith('x'):
+        input_string = input_string[:-1]
+    return input_string
+
+print("Result after removing 'x':", remove_x("xHix"))
+
+# 5. Return a string made of n repetitions of the last n characters.
+def repeat_last_n(input_string, n):
+    last_n_chars = input_string[-n:]
+    return last_n_chars * n
+
+print("Result of repetitions:", repeat_last_n("Wipro", 3))
