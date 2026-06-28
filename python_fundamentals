@@ -1,0 +1,109 @@
+#project 1
+ip=int(input("how far would you like to travel in miles? : "))
+
+if(ip<5):
+    print("I suggest Bicycle to your destination")
+elif(ip<300):
+    print("I suggest MotorCycle to your destination")
+else:
+    print("I suggest Super-Car to your destination")
+
+
+
+#project 2
+cost=1.58
+
+day=cost*24
+week=day*7
+month=week*4
+days=918/cost
+
+print("how much does it cost to operate one server per day?: "+str(day))
+print("how much does it cost to operate one server per week?: "+str(week))
+print("how much does it cost to operate one server per month?: "+str(month))
+print("how many days can I operate a server with $918?: "+str(days))
+
+
+#flow control statements- assignment
+
+#ques 1
+num = float(input("Enter a number: "))
+if num > 0:
+    print("Positive")
+elif num < 0:
+    print("Negative")
+else:
+    print("Zero")
+
+
+#ques 2
+num = int(input("Enter a number: "))
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+
+#ques 3
+def lastDigit(a, b):
+    return (a % 10) == (b % 10)
+
+print(lastDigit(7, 17))   # True
+print(lastDigit(6, 17))   # False
+print(lastDigit(3, 113))  # True
+
+#ques 4
+for i in range(1, 11):
+    print(i, end="    ")
+
+#ques 5
+for i in range(23, 58):
+    if i % 2 == 0:
+        print(i)
+
+#ques 6
+n=int(input("Enter a number: "))
+for i in range (2,n):
+    if n%i==0:
+        print("not prime")
+        break
+else:
+    print("prime")
+
+#ques 7
+for j in range(10,100):
+    for i in range (2,j):
+        if j%i==0:
+            break
+    else:
+        print(j)
+
+#ques 8
+n=int(input("enter num: "))
+
+sum=0
+while(n>0):
+    d=n%10
+    sum=sum+d
+    n=n//10
+print(sum)
+
+#ques 9
+n=int(input("enter num: "))
+
+rev=0
+while(n>0):
+    d=n%10
+    rev=rev*10+d
+    n=n//10
+print(rev)
+
+#ques 10
+num=int(input("enter num: "))
+n=num
+rev=0
+while(n>0):
+    d=n%10
+    rev=rev*10+d
+    n=n//10
+print(rev==num)
