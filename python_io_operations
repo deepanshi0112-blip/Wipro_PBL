@@ -1,0 +1,66 @@
+# Mini Project - File I/O Operations in Python
+
+filename = "example.txt"
+content = "Hello, this is a test for IO operations."
+
+# Write data to the file
+try:
+    with open(filename, "w") as file:
+        file.write(content)
+except IOError as e:
+    print("Error while writing to file:", e)
+
+# Read data from the file
+try:
+    with open(filename, "r") as file:
+        for line in file:
+            print(line)
+except IOError as e:
+    print("Error while reading the file:", e)
+
+
+# Q1
+print("Q1: Read Entire File")
+with open("sample.txt", "r") as file:
+    print(file.read())
+
+# Q2
+print("\nQ2: Read First N Lines")
+n = int(input("Enter number of lines to read: "))
+with open("sample.txt", "r") as file:
+    for i in range(n):
+        line = file.readline()
+        if not line:
+            break
+        print(line, end="")
+
+# Q3
+print("\n\nQ3: Append Text")
+text = input("Enter text to append: ")
+with open("sample.txt", "a") as file:
+    file.write("\n" + text)
+print("Text appended successfully.")
+
+# Q4
+print("\nQ4: Read Lines into List")
+with open("sample.txt", "r") as file:
+    lines = file.readlines()
+print(lines)
+
+# Q5
+print("\nQ5: Longest Word")
+with open("sample.txt", "r") as file:
+    words = file.read().split()
+
+if words:
+    print("Longest word:", max(words, key=len))
+else:
+    print("File is empty.")
+
+# Q6
+print("\nQ6: Word Frequency")
+word = input("Enter word to count: ")
+with open("sample.txt", "r") as file:
+    words = file.read().split()
+
+print(f"'{word}' appears {words.count(word)} times.")
