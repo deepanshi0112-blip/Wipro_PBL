@@ -1,0 +1,56 @@
+#mini project
+import sys
+
+def calculate_happiness():
+    args = sys.argv[1:]
+    
+    set1 = set(args[0].split('-'))
+    set2 = set(args[1].split('-'))
+    numbers = args[2].split('-')
+    
+    happiness = 0
+    for num in numbers:
+        if num in set1:
+            happiness += 1
+        elif num in set2:
+            happiness -= 1
+            
+    print(happiness)
+
+if __name__ == "__main__":
+    calculate_happiness()
+
+#ques 1
+import sys
+
+num1 = int(sys.argv[1])
+num2 = int(sys.argv[2])
+print(num1 + num2)
+
+#ques 2
+import sys
+import os
+
+message = sys.argv[1]
+print(os.path.basename(sys.argv[0]), message)
+
+#ques 3
+import sys
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+args = sys.argv[1:]
+prime_sum = 0
+
+for i in range(10):
+    num = int(args[i])
+    if is_prime(num):
+        prime_sum += num
+
+print(prime_sum)
